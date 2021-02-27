@@ -1,13 +1,155 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.idCard {
+    display: flex;
+    width: 100vw;
+    border: 1px solid black;
+    margin: 1em;
+    padding: 1em;
+}
+
+.idCard img {
+    width: 12em;
+    margin-right: 1em;
+}
+
+.idCard section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.idCard section p {
+    margin: 0;
+    padding: 0;
+}
+
+.greeting {
+    font-size: 2em;
+    border: 1px solid black;
+    margin: 1em;
+    text-align: left;
+}
+
+.greeting p {
+    margin: 0.2em 0.5em;
+}
+
+.random {
+    font-size: 2em;
+    border: 1px solid black;
+    margin: 1em;
+    text-align: left;
+}
+
+.random p {
+    margin: 0.2em 0.5em;
+}
+
+.colorBox {
+    height: 5em;
+    font-size: 2em;
+    color: antiquewhite;
+    border: 1px solid black;
+    margin: 1em;
+    padding-top: 1em;
+}
+
+.card {
+    font-size: 1.5em;
+    margin: 0.5em;
+    width: 18em;
+    border-radius: 1em;
+    height: 10em;
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    margin-left: 14em;
+}
+
+.number {
+    margin-top: 0.9em;
+    margin-bottom: 00.2em;
+    font-weight: 500;
+    font-size: 1.8em;
+    letter-spacing: 3px;
+}
+
+.card section {
+    font-size: 0.6em;
+    max-width: fit-content;
+    margin: 0.5em;
+}
+
+.card section p {
+    padding: 0;
+    margin: 0;
+}
+
+#creditCards {
+    display: flex;
+}
+
+.stars {
+    display: flex;
+}
+
+.stars p {
+    width: 2em;
+    height: 2em;
+    font-size: 3em;
+    font-weight: 500;
+}
+
+.driverCard {
+    background-color: rgb(118, 135, 209);
+    border-radius: 2%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
+    color: aliceblue;
+    margin: 1em 0em;
+    padding: 1em;
+    max-width: 80vw;
+    margin-left: 2em;
+}
+
+.driverCard img {
+    border-radius: 50%;
+    margin-top: 0.5em;
+    margin-right: 0.5em;
+}
+
+.driverCard section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.driverCard section p {
+    margin: 0;
+    padding: 0;
+    font-size: 0.8em;
+}
+
+#rating p {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+#name {
+    font-size: 1.5em;
+    font-weight: 500;
 }
