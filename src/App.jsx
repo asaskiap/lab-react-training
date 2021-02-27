@@ -63,8 +63,12 @@ const Random = ({ min, max }) => {
 };
 
 const BoxColor = ({ r, g, b }) => {
+  const colorLight = (r + g + b) / 6 > 255 / 2;
+  console.log(colorLight);
+  const textColor = colorLight ? 'black' : 'white';
   const style = {
     backgroundColor: 'rgb(' + r + ',' + g + ',' + b + ')',
+    color: textColor,
   };
 
   return (
@@ -204,6 +208,70 @@ const DriverCard = ({ name, rating, img, car }) => {
   );
 };
 
+class LikeButton extends React.Component {
+  state = {
+    likes: 0,
+  };
+
+  incrementLikes = () => {
+    this.setState({
+      likes: this.state.likes + 1,
+    });
+  };
+
+  render() {
+    return (
+      <button className="likeBtn" onClick={this.incrementLikes}>
+        {this.state.likes} Likes
+      </button>
+    );
+  }
+}
+
+class ClickablePicture extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      img: this.props.img,
+    };
+  }
+
+  toggleImage = () => {
+    this.setState({
+      img:
+        this.state.img === this.props.img
+          ? this.props.imgClicked
+          : this.props.img,
+    });
+  };
+  render() {
+    return (
+      <img src={this.state.img} alt="funnyPic" onClick={this.toggleImage} />
+    );
+  }
+}
+
+class Dice extends React.Component {
+  state = {
+    val: Math.floor(Math.random() * 10) + 1,
+  };
+
+  roll = () => {
+    //TODO
+  };
+
+  render() {
+    return (
+      <img
+        src="./img/dice-empty.png"
+        alt="dice"
+        height="300"
+        onClick={this.roll}
+      ></img>
+    );
+  }
+}
+
 function App() {
   return (
     <div className="App">
@@ -215,7 +283,6 @@ function App() {
         birth={new Date('1992-07-14')}
         picture="https://randomuser.me/api/portraits/men/44.jpg"
       />
-
       <IdCard
         lastName="Delores "
         firstName="Obrien"
@@ -286,6 +353,15 @@ function App() {
           licensePlate: 'BE33ER',
         }}
       />
+      <LikeButton />
+      <LikeButton />
+
+      <ClickablePicture
+        img="/img/persons/maxence.png"
+        imgClicked="/img/persons/maxence-glasses.png"
+      />
+
+      <Dice />
     </div>
   );
 }
