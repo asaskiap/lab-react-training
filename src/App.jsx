@@ -89,13 +89,20 @@ const CreditCard = ({
     color: color,
   };
 
+  let visa = false;
+  if (type === 'Visa') {
+    visa = true;
+  }
+
+  console.log(visa);
+
   return (
     <div className="card" style={style}>
       <img
-        src={{ type } === 'Visa' ? './visa.jpg' : './mastercard.jpg'}
+        src={visa ? './visa.jpg' : './mastercard.png'}
         alt="visalogo"
         height="50"
-        width="60"
+        width="90"
       />
       <p className="number">{number}</p>
       <section>
