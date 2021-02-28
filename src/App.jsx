@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import profiles from './data/berlin.json';
 
 const IdCard = ({ lastName, firstName, gender, height, birth, picture }) => {
   return (
@@ -103,10 +104,10 @@ const CreditCard = ({
   return (
     <div className="card" style={style}>
       <img
-        src={visa ? './visa.jpg' : './mastercard.png'}
+        src={visa ? './img/visa.png' : './img/master-card.svg'}
         alt="visalogo"
-        height="50"
-        width="90"
+        height="40"
+        width="80"
       />
       <p className="number">{number}</p>
       <section>
@@ -253,21 +254,99 @@ class ClickablePicture extends React.Component {
 
 class Dice extends React.Component {
   state = {
-    val: Math.floor(Math.random() * 10) + 1,
+    img: './img/dice-empty.png',
   };
 
   roll = () => {
-    //TODO
+    const val = Math.floor(Math.random() * 6) + 1;
+    console.log(val);
+    this.setState({
+      img: `./img/dice${val}.png`,
+    });
   };
 
   render() {
     return (
       <img
-        src="./img/dice-empty.png"
+        src={this.state.img}
         alt="dice"
         height="300"
         onClick={this.roll}
       ></img>
+    );
+  }
+}
+
+class NumbersTable extends React.Component {
+  constructor(props) {
+    super(props);
+    this.limit = props.limit;
+    this.numArr = [];
+    for (let i = 1; i < this.limit + 1; i++) {
+      this.numArr.push(i);
+    }
+  }
+
+  style1 = {
+    backgroundColor: 'red',
+    color: 'white',
+    listStyleType: 'none',
+    border: '2px solid black',
+  };
+  style2 = {
+    backgroundColor: 'white',
+    color: 'black',
+    listStyleType: 'none',
+    border: '2px solid black',
+  };
+
+  render() {
+    return (
+      <ul className="numbersTable">
+        {this.numArr.map((num) => {
+          if (num % 2 === 0) {
+            return (
+              <li key={num} style={this.style1} className="numbersTableItem">
+                {num}
+              </li>
+            );
+          } else {
+            return (
+              <li key={num} style={this.style2} className="numbersTableItem">
+                {num}
+              </li>
+            );
+          }
+        })}
+      </ul>
+    );
+  }
+}
+
+class FaceBook extends React.Component {
+  render() {
+    console.log(profiles);
+    return (
+      <div className="FaceBook">
+        {profiles.map((person) => {
+          return (
+            <div className="idCard">
+              <img src={person.img} alt="pic" />
+              <section>
+                <p>
+                  <strong> First Name: </strong> {person.firstName}
+                </p>
+                <p>
+                  <strong> Last Name: </strong> {person.lastName}
+                </p>
+                <p>
+                  <strong> Country: </strong> {person.country}
+                </p>
+              </section>
+            </div>
+          );
+        })}
+      </div>
     );
   }
 }
@@ -362,6 +441,10 @@ function App() {
       />
 
       <Dice />
+
+      <NumbersTable limit={14} />
+
+      <FaceBook />
     </div>
   );
 }

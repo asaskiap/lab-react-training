@@ -75,7 +75,8 @@ code {
 }
 
 .card img {
-    margin-left: 14em;
+    margin-left: 13em;
+    padding: 0.2em;
 }
 
 .number {
@@ -157,4 +158,16 @@ code {
 .likeBtn {
     font-size: 2em;
     margin: 1em;
+}
+
+.numbersTable {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.numbersTableItem {
+    font-size: 4em;
+    width: 2em;
+    padding: 0.7em 0.5em;
+    text-align: center;
 }
